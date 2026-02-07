@@ -18,7 +18,8 @@ import pymavlink.mavutil as utility
 import pymavlink.dialects.v20.all as dialect
 
 # connect to vehicle
-vehicle = utility.mavlink_connection(device="udpin:127.0.0.1:14560")
+# tcp: 127.0.0.1:5762 connects the script to the mission planner
+vehicle = utility.mavlink_connection(device="tcp:127.0.0.1:5762")
 
 # wait for a heartbeat
 vehicle.wait_heartbeat()
