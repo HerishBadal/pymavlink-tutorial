@@ -28,3 +28,12 @@ vehicle.wait_heartbeat()
 print("Connected to system:", vehicle.target_system, ", component:", vehicle.target_component)
 #to send a command you need to fist build them
 # build up the command message
+
+message2 = dialect.MAVLink_command_long_message(
+    target_system=vehicle.target_system, target_component=vehicle.target_component, 
+    command=dialect.MAV_CMD_DO_SEND_BANNER, confirmation=0,
+    param1=0, param2=0, param3=0, param4=0, param5=0, param6=0, param7=0
+)
+
+# send the command
+vehicle.mav.send(message2)
